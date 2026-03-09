@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Photo Frames Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        /* গ্যালারি গ্রিড ডিজাইন */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* ফ্রেমের ডিজাইন */
+        .frame {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .frame:hover {
+            transform: scale(1.05); /* মাউস নিলে ফ্রেম একটু বড় হবে */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .frame img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .frame p {
+            margin: 8px 0 0 0;
+            font-size: 12px;
+            color: #555;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>আমার ১০০টি লোগো গ্যালারি</h1>
+
+    <!-- গ্যালারি কন্টেইনার -->
+    <div class="gallery">
+        <!-- জাভাস্ক্রিপ্ট এর সাহায্যে ১০০ টি ফ্রেম তৈরি করা হলো -->
+    </div>
+
+    <script>
+        // গ্যালারি ডিভটি সিলেক্ট করা
+        const gallery = document.querySelector('.gallery');
+
+        // ১ থেকে ১০০ পর্যন্ত লুপ চালিয়ে ছবিগুলো যুক্ত করা
+        for (let i = 1; i <= 100; i++) {
+            // ছবির নাম তৈরি (যেমন: my-logo1.jpg)
+            const imageName = `my-logo${i}.jpg`;
+
+            // একটি নতুন ফ্রেম তৈরি
+            const frame = document.createElement('div');
+            frame.classList.add('frame');
+
+            // ফ্রেমের ভেতরে ইমেজ এবং টেক্সট বসানো
+            frame.innerHTML = `
+                <img src="${imageName}" alt="${imageName}" onerror="this.src='https://via.placeholder.com/120?text=No+Image'">
+                <p>${imageName}</p>
+            `;
+
+            // গ্যালারিতে ফ্রেমটি যোগ করা
+            gallery.appendChild(frame);
+        }
+    </script>
+
+</body>
+</html>
